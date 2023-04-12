@@ -1,0 +1,212 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(to right, #eae6c0, #d6afee);
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.title {
+  font-size: 40px;
+  color: #7257ca;
+}
+
+.list {
+  position: relative;
+  padding-top: 50px;
+  list-style: none;
+  max-width: 1100px;
+  margin: 0 auto;
+  margin-bottom: 50px;
+  perspective: 1000px;
+}
+
+.card {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border-radius: 20px;
+  outline: 2px solid transparent;
+  transform-style: preserve-3d;
+  box-shadow: rgb(0, 0, 0, 0.2) 0 0 15px 0;
+  transition: transform 0.3s ease, outline 0.3s linear;
+  cursor: pointer;
+}
+
+.card:hover {
+  outline: 2px solid rgb(164, 122, 201);
+}
+
+.card:active {
+  transform: scale(0.95);
+  transition: transform 0.2s ease-in-out;
+}
+
+.face,
+.back {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #a47ac9;
+  border-radius: 20px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.face {
+  background: beige url(../bg.jpg) no-repeat center / cover;
+  cursor: pointer;
+  transition: transform 0.1s ease-in-out;
+}
+
+.face:hover {
+  outline: 3px solid rgb(164, 122, 201);
+}
+
+.back {
+  transform: rotateY(180deg);
+  padding-top: 50px;
+  background-color: #846bd7;
+  user-select: none;
+  color: black;
+  font-size: 80px;
+  text-align: center;
+  backface-visibility: hidden;
+}
+
+.toggle-card {
+  transform: rotateY(180deg);
+}
+
+.matched {
+  outline: 6px solid #42c7a8;
+  outline-offset: 4px;
+  transition: outline 0.2s ease-in-out;
+  pointer-events: none;
+}
+
+.set-cards,
+.repeat-game,
+.restart-btn {
+  background-color: #846bd7;
+  margin-right: 20px;
+  padding: 10px 30px;
+  border-radius: 20px;
+  border: 1px solid rgb(164, 122, 201);
+  outline: 2px solid transparent;
+  font-size: 30px;
+  color: rgb(198, 229, 237);
+  transition: outline 0.4s linear, transform 0.4s linear;
+  cursor: pointer;
+}
+
+.set-cards:hover,
+.repeat-game:hover,
+.restart-btn:hover {
+  outline: 2px solid rgb(188, 153, 218);
+}
+
+.set-cards:active,
+.repeat-game:active,
+.restart-btn:active {
+  transform: scale(0.95);
+}
+
+.timer-show {
+  display: block;
+  padding: 5px;
+  border: 1px solid rgb(188, 153, 218);
+  border-radius: 20px;
+  width: 80px;
+  font-size: 50px;
+  line-height: 50px;
+  color: #7257ca;
+}
+
+.input {
+  margin-right: 20px;
+  width: 100px;
+  padding-left: 15px;
+  background-color: transparent;
+  font-size: 50px;
+  line-height: 0;
+  border-radius: 10px;
+  border: 1px solid rgb(164, 122, 201);
+  color: #7257ca;
+}
+
+.set-cards:disabled {
+  background-color: #a08fd8;
+  color: #bdb5d7;
+}
+
+.how-many {
+  display: block;
+  max-width: 50%;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  font-size: 30px;
+  color: #7257ca;
+  font-weight: bold;
+}
+
+.restart-btn,
+.repeat-game {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}
+
+.active-btn {
+  opacity: 1;
+  visibility: visible;
+}
+
+.winner,
+.loser {
+  position: absolute;
+  top: 20px;
+  right: -20%;
+  z-index: 2;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 40px;
+  text-shadow: 0 0 10px #d8a0e8, 0 0 20px #d8a0e8, 0 0 30px #d8a0e8, 0 0 40px #d8a0e8;
+  padding-top: 105px;
+  color: #ffffff;
+  background-color: #1c3f37c8;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.winner.active-disp {
+  opacity: 1;
+  visibility: visible;
+}
+
+.loser {
+  padding-top: 90px;
+  background-color: #3f2238d3;
+  text-shadow: 0 0 10px #42c7a8, 0 0 20px #42c7a8, 0 0 30px #42c7a8, 0 0 40px #42c7a8;
+}
+
+.loser.active-disp {
+  opacity: 1;
+  visibility: visible;
+}

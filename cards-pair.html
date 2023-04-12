@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script defer type="module" src="cards-pair.js"></script>
+  <title>Memory game</title>
+</head>
+<body>
+  <section>
+    <h1 class="title">Check your memory &#128521;</h1>
+    <p class="how-many">How many cards do you wish? It can be only the even number between 2 and 16. If you enter any odd number, 4 cards appears as a default value</p>
+    <div class="wrap flex">
+      <input class="input" type="number">
+      <button class="set-cards">That`s enough</button>
+      <div class="timer-show" title="Timer just for fun"></div>
+    </div>
+    <ul class="list flex">
+      <li class="winner animate__animated">Well done</li>
+      <li class="loser animate__animated">Try again it's easy</li>
+    </ul>
+    <button class="restart-btn">Start new game</button>
+    <button class="repeat-game">Repeat this game without timer</button>
+  </section>
+</body>
+</html>
